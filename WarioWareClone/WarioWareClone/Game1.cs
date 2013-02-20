@@ -14,6 +14,9 @@ namespace WarioWareClone {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Texture2D texture;
+        Rectangle rectangle;
+
         KeyboardState keyboard, oldkeyboard;
 
         public Game1() {
@@ -27,6 +30,8 @@ namespace WarioWareClone {
 
         protected override void LoadContent() {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            texture = Content.Load<Texture2D>("person");
+            rectangle = new Rectangle(376, 418, texture.Width, texture.Height);
         }
 
         protected override void UnloadContent() {
@@ -38,7 +43,7 @@ namespace WarioWareClone {
             if (keyboard.IsKeyDown(Keys.Escape))
                 this.Exit();
 
-
+            
 
             oldkeyboard = keyboard;
             base.Update(gameTime);
